@@ -153,13 +153,13 @@ a:hover{color:black}
 <div style="font-size:30px;background:green;color:white;width:330px;border-radius:10px;margin-top:10px;padding:10px;border-top:5px solid orange">UPTD SMPN 9 SINJAI</div><br>
 <b>Mapel Remedi</b><br><i>SAS GENAP TP.2024/2025</i><p>
 <div style="background:Orange;color:white;width:330px;border-radius:10px;margin-top:10px"><b style="font-color:blue" >Kelas 7</b><p></div>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScOJEdmdeDVZmja1zM4izBpAAHtT42BcDC977dAF-1j3X_uNA/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScl7eQgYlBx_iFv2A9invEHC14GaHRqy9vQr4Y0hQy-lUiBpw/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Indonesia</a> 
+<a href="1FAIpQLScOJEdmdeDVZmja1zM4izBpAAHtT42BcDC977dAF-1j3X_uNA/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
+<a href="1FAIpQLScl7eQgYlBx_iFv2A9invEHC14GaHRqy9vQr4Y0hQy-lUiBpw/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Indonesia</a> 
 
 <p>
 <div style="background:red;color:white;width:330px;border-radius:10px;margin-top:10px"><b style="font-color:blue" >Kelas 8</b><p></div>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdeC9yIv5oXDBWufiCMQE_c38BAqLSF9-dpnmhRarsuF0ZRIA/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLScrd2crFEfiwngbJ7og5TVmpeTHmILX13nifZV_iAcONwkZzQ/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Indonesia</a> 
+<a href="1FAIpQLSdeC9yIv5oXDBWufiCMQE_c38BAqLSF9-dpnmhRarsuF0ZRIA/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
+ <a href="1FAIpQLScrd2crFEfiwngbJ7og5TVmpeTHmILX13nifZV_iAcONwkZzQ/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Indonesia</a> 
 </center>
 </div>
 <script>
@@ -168,7 +168,7 @@ document.getElementById("lop").style.display="none"
 var hh='';
 function go(ev,dd){
 ev.preventDefault();
-var mdata=	`<iframe allowfullscreen='true' id="soal" frameborder='0' onload='gos()' height='980px' id='soal' marginheight='0' marginwidth='0' mozallowfullscreen='true' msallowfullscreen='true'  src='`+dd+`' style='border: none; width:100%;max-width:100%; max-height:100vh' webkitallowfullscreen='true' width='640px'>Memuat&#8230;</iframe>`
+var mdata=	`<iframe allowfullscreen='true' id="soal" frameborder='0' onload='gos()' height='980px' id='soal' marginheight='0' marginwidth='0' mozallowfullscreen='true' msallowfullscreen='true'  src='`+"https://docs.google.com/forms/d/e/"+dd+`' style='border: none; width:100%;max-width:100%; max-height:100vh' webkitallowfullscreen='true' width='640px'>Memuat&#8230;</iframe>`
 document.body.style.marginTop="0px";
 document.getElementById("tes").innerHTML=mdata
 document.getElementById("lop").style.display="block"
