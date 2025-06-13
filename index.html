@@ -168,7 +168,7 @@ document.getElementById("lop").style.display="none"
 var hh='';
 function go(ev,dd){
 ev.preventDefault();
-var mdata=	`<iframe allowfullscreen='true' id="soal" frameborder='0' onload='gos()' height='980px' id='soal' marginheight='0' marginwidth='0' mozallowfullscreen='true' msallowfullscreen='true'  src='`+"https://docs.google.com/forms/d/e/"+dd+`' style='border: none; width:100%;max-width:100%; max-height:100vh' webkitallowfullscreen='true' width='640px'>Memuat&#8230;</iframe>`
+var mdata=	`<iframe allowfullscreen='true' id="soal" frameborder='0' onload='gos()' height='980px' id='soal' marginheight='0' marginwidth='0' mozallowfullscreen='true' msallowfullscreen='true'  src='`+`https://docs.google.com/forms/d/e/`+dd+`' style='border: none; width:100%;max-width:100%; max-height:100vh' webkitallowfullscreen='true' width='640px'>Memuat&#8230;</iframe>`
 document.body.style.marginTop="0px";
 document.getElementById("tes").innerHTML=mdata
 document.getElementById("lop").style.display="block"
