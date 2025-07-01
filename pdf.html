@@ -6,8 +6,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     body {
-      text-align: center;
       font-family: 'Times New Roman', serif;
+      text-align: center;
+    }
+
+    #skl {
+      position: absolute;
+      top: 0;
+      left: -9999px;
+      visibility: hidden;
     }
 
     .btn-download {
@@ -20,88 +27,78 @@
       cursor: pointer;
       font-size: 16px;
     }
-
-    iframe {
-      display: none;
-    }
   </style>
 </head>
 <body>
 
-  <button class="btn-download" onclick="generateSurat()">Download Surat Kelulusan (PDF)</button>
+  <button class="btn-download" onclick="downloadPDF()">Download Surat Kelulusan (PDF)</button>
 
-  <iframe id="sklFrame"></iframe>
-
-  <script>
-    const suratHTML = `
-      <div style="width: 850px; margin: auto; padding: 2cm; font-family: 'Times New Roman', serif; font-size:13px; line-height:1.4">
-        <div style="display: flex; align-items: center; justify-content: center;">
-          <img src="https://via.placeholder.com/70" style="width:70px; height:70px; margin-right:15px;">
-          <div style="text-align: center; flex-grow: 1;">
-            <h2 style="margin:0; font-size:16px;">PEMERINTAH KABUPATEN CONTOH</h2>
-            <h3 style="margin:0; font-size:16px;">SEKOLAH MENENGAH PERTAMA NEGERI 9 SINJAI</h3>
-            <p style="margin:2px 0; font-size:12px;">Jl. Pendidikan No. 123, Sinjai, Sulawesi Selatan</p>
-          </div>
-        </div>
-        <hr style="border:1px solid black; margin:6px 0 16px 0;">
-
-        <h3 style="text-align: center;"><u>SURAT KETERANGAN KELULUSAN</u></h3>
-        <p style="text-align: center;">Nomor: 421.1/123/SMP9/2025</p>
-
-        <p>Yang bertanda tangan di bawah ini, Kepala SMP Negeri 9 Sinjai, menerangkan bahwa:</p>
-        <ul style="list-style:none; padding:0;">
-          <li>Nama: <strong>Andi Budi Santoso</strong></li>
-          <li>Tempat, Tgl Lahir: <strong>Sinjai, 15 Mei 2009</strong></li>
-          <li>NISN: <strong>0056789123</strong></li>
-          <li>NIS: <strong>12345</strong></li>
-        </ul>
-
-        <p>Adalah siswa SMP Negeri 9 Sinjai dan berdasarkan hasil rapat dewan guru tentang penilaian akhir peserta didik tahun pelajaran 2024/2025, dinyatakan:</p>
-        <h3 style="text-align:center; color:green;"><u>LULUS</u></h3>
-
-        <p>Adapun nilai transkrip akademik yang bersangkutan sebagai berikut:</p>
-
-        <table style="width:100%; border-collapse:collapse; font-size:12px;" border="1">
-          <thead>
-            <tr>
-              <th style="width:10%;">No</th>
-              <th style="width:75%; text-align:left; padding-left:8px;">Mata Pelajaran</th>
-              <th style="width:15%;">Nilai</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>1</td><td>Pendidikan Agama</td><td>88</td></tr>
-            <tr><td>2</td><td>PPKn</td><td>85</td></tr>
-            <tr><td>3</td><td>Bahasa Indonesia</td><td>90</td></tr>
-            <tr><td>4</td><td>Matematika</td><td>87</td></tr>
-            <tr><td>5</td><td>IPA</td><td>89</td></tr>
-            <tr><td>6</td><td>IPS</td><td>86</td></tr>
-            <tr><td>7</td><td>Bahasa Inggris</td><td>88</td></tr>
-            <tr><td>8</td><td>Seni Budaya</td><td>91</td></tr>
-            <tr><td>9</td><td>PJOK</td><td>92</td></tr>
-          </tbody>
-        </table>
-
-        <p style="margin-top: 10px;">Demikian surat keterangan ini dibuat untuk digunakan sebagaimana mestinya.</p>
-
-        <div style="text-align: right; margin-top: 20px;">
-          <p>Sinjai, 1 Juli 2025</p>
-          <p>Kepala Sekolah,</p><br><br>
-          <p><strong>Drs. H. Muhammad Yusuf</strong><br>NIP. 19650101 199003 1 001</p>
+  <div id="skl">
+    <div style="width: 850px; padding: 2cm;">
+      <div style="display: flex; align-items: center; justify-content: center;">
+        <img src="https://via.placeholder.com/70" alt="Logo Sekolah" style="width:70px;height:70px;margin-right:15px;">
+        <div style="text-align: center; flex-grow: 1;">
+          <h2 style="margin:0;">PEMERINTAH KABUPATEN CONTOH</h2>
+          <h3 style="margin:0;">SEKOLAH MENENGAH PERTAMA NEGERI 9 SINJAI</h3>
+          <p style="margin:0;">Jl. Pendidikan No. 123, Sinjai, Sulawesi Selatan</p>
         </div>
       </div>
-    `;
+      <hr style="border:1px solid black; margin:6px 0 16px 0;">
 
-    function generateSurat() {
-      const iframe = document.getElementById('sklFrame');
-      const doc = iframe.contentWindow.document;
-      doc.open();
-      doc.write(`<!DOCTYPE html><html><head><title>SKL</title></head><body>${suratHTML}</body></html>`);
-      doc.close();
+      <h3 style="text-align:center;"><u>SURAT KETERANGAN KELULUSAN</u></h3>
+      <p style="text-align:center;">Nomor: 421.1/123/SMP9/2025</p>
 
-      // Tunggu iframe selesai render
-      iframe.onload = () => {
-        const content = iframe.contentDocument.body;
+      <p style="text-align:left;">Yang bertanda tangan di bawah ini, Kepala SMP Negeri 9 Sinjai, menerangkan bahwa:</p>
+      <ul style="text-align:left; list-style:none; padding:0;">
+        <li>Nama: <strong>Andi Budi Santoso</strong></li>
+        <li>Tempat, Tgl Lahir: <strong>Sinjai, 15 Mei 2009</strong></li>
+        <li>NISN: <strong>0056789123</strong></li>
+        <li>NIS: <strong>12345</strong></li>
+      </ul>
+
+      <p style="text-align:left;">Adalah siswa SMP Negeri 9 Sinjai dan berdasarkan hasil rapat dewan guru tahun pelajaran 2024/2025, dinyatakan:</p>
+
+      <h3 style="text-align:center; color:green;"><u>LULUS</u></h3>
+
+      <p style="text-align:left;">Adapun nilai transkrip akademik sebagai berikut:</p>
+
+      <table border="1" style="width:100%; border-collapse:collapse; font-size:12px;">
+        <thead>
+          <tr>
+            <th style="width:10%;">No</th>
+            <th style="width:75%; text-align:left;">Mata Pelajaran</th>
+            <th style="width:15%;">Nilai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Pendidikan Agama</td><td>88</td></tr>
+          <tr><td>2</td><td>PPKn</td><td>85</td></tr>
+          <tr><td>3</td><td>Bahasa Indonesia</td><td>90</td></tr>
+          <tr><td>4</td><td>Matematika</td><td>87</td></tr>
+          <tr><td>5</td><td>IPA</td><td>89</td></tr>
+          <tr><td>6</td><td>IPS</td><td>86</td></tr>
+          <tr><td>7</td><td>Bahasa Inggris</td><td>88</td></tr>
+          <tr><td>8</td><td>Seni Budaya</td><td>91</td></tr>
+          <tr><td>9</td><td>PJOK</td><td>92</td></tr>
+        </tbody>
+      </table>
+
+      <p style="text-align:left; margin-top:10px;">Demikian surat keterangan ini dibuat untuk digunakan sebagaimana mestinya.</p>
+
+      <div style="text-align:right; margin-top:20px;">
+        <p>Sinjai, 1 Juli 2025</p>
+        <p>Kepala Sekolah,</p><br><br>
+        <p><strong>Drs. H. Muhammad Yusuf</strong><br>NIP. 19650101 199003 1 001</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function downloadPDF() {
+      const element = document.getElementById("skl");
+
+      // Delay untuk memastikan DOM siap
+      setTimeout(() => {
         html2pdf()
           .set({
             margin: 0,
@@ -110,9 +107,9 @@
             html2canvas: { scale: 2 },
             jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
           })
-          .from(content)
+          .from(element)
           .save();
-      };
+      }, 100); // delay 100ms cukup
     }
   </script>
 
