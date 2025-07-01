@@ -1,115 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Surat Kelulusan</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     body {
-      font-family: 'Times New Roman', serif;
-      text-align: center;
-    }
-
-    #skl {
-      position: absolute;
-      top: 0;
-      left: -9999px;
-      visibility: hidden;
+      font-family: "Times New Roman", serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
     }
 
     .btn-download {
-      margin-top: 100px;
-      background: #4CAF50;
-      color: white;
-      padding: 14px 30px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+      display: block;
+      margin: 20px auto;
+      padding: 10px 25px;
       font-size: 16px;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #skl {
+      width: 21.59cm; /* letter width */
+      min-height: 27.94cm; /* letter height */
+      margin: auto;
+      background: white;
+      padding: 2cm;
+      box-sizing: border-box;
+      color: black;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .kop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kop img {
+      width: 70px;
+      height: 70px;
+      margin-right: 10px;
+    }
+
+    .kop h2,
+    .kop h3,
+    .kop p {
+      margin: 2px;
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 12px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 5px;
+      text-align: center;
+    }
+
+    th:nth-child(1),
+    td:nth-child(1) {
+      width: 10%;
+    }
+
+    th:nth-child(2),
+    td:nth-child(2) {
+      text-align: left;
+      padding-left: 10px;
+    }
+
+    .ttd {
+      margin-top: 30px;
+      text-align: right;
+    }
+
+    .ttd p {
+      margin: 2px 0;
     }
   </style>
 </head>
 <body>
 
-  <button class="btn-download" onclick="downloadPDF()">Download Surat Kelulusan (PDF)</button>
+  <button class="btn-download" onclick="downloadPDF()">Download PDF</button>
 
   <div id="skl">
-    <div style="width: 850px; padding: 2cm;">
-      <div style="display: flex; align-items: center; justify-content: center;">
-        <img src="https://via.placeholder.com/70" alt="Logo Sekolah" style="width:70px;height:70px;margin-right:15px;">
-        <div style="text-align: center; flex-grow: 1;">
-          <h2 style="margin:0;">PEMERINTAH KABUPATEN CONTOH</h2>
-          <h3 style="margin:0;">SEKOLAH MENENGAH PERTAMA NEGERI 9 SINJAI</h3>
-          <p style="margin:0;">Jl. Pendidikan No. 123, Sinjai, Sulawesi Selatan</p>
-        </div>
+    <div class="kop">
+      <img src="https://via.placeholder.com/70" alt="Logo Sekolah" />
+      <div>
+        <h2>PEMERINTAH KABUPATEN CONTOH</h2>
+        <h3>SMP NEGERI 9 SINJAI</h3>
+        <p>Jl. Pendidikan No. 123, Sinjai, Sulawesi Selatan</p>
       </div>
-      <hr style="border:1px solid black; margin:6px 0 16px 0;">
+    </div>
+    <hr style="border: 1px solid black; margin: 10px 0 20px 0;" />
 
-      <h3 style="text-align:center;"><u>SURAT KETERANGAN KELULUSAN</u></h3>
-      <p style="text-align:center;">Nomor: 421.1/123/SMP9/2025</p>
+    <h3 style="text-align: center;"><u>SURAT KETERANGAN KELULUSAN</u></h3>
+    <p style="text-align: center;">Nomor: 421.1/123/SMP9/2025</p>
 
-      <p style="text-align:left;">Yang bertanda tangan di bawah ini, Kepala SMP Negeri 9 Sinjai, menerangkan bahwa:</p>
-      <ul style="text-align:left; list-style:none; padding:0;">
-        <li>Nama: <strong>Andi Budi Santoso</strong></li>
-        <li>Tempat, Tgl Lahir: <strong>Sinjai, 15 Mei 2009</strong></li>
-        <li>NISN: <strong>0056789123</strong></li>
-        <li>NIS: <strong>12345</strong></li>
-      </ul>
+    <p>Yang bertanda tangan di bawah ini, Kepala SMP Negeri 9 Sinjai, menerangkan bahwa:</p>
+    <ul style="list-style: none; padding: 0;">
+      <li>Nama: <strong>Andi Budi Santoso</strong></li>
+      <li>Tempat, Tgl Lahir: <strong>Sinjai, 15 Mei 2009</strong></li>
+      <li>NISN: <strong>0056789123</strong></li>
+      <li>NIS: <strong>12345</strong></li>
+    </ul>
 
-      <p style="text-align:left;">Adalah siswa SMP Negeri 9 Sinjai dan berdasarkan hasil rapat dewan guru tahun pelajaran 2024/2025, dinyatakan:</p>
+    <p>Adalah siswa SMP Negeri 9 Sinjai dan berdasarkan hasil rapat dewan guru tentang penilaian akhir peserta didik tahun pelajaran 2024/2025, dinyatakan:</p>
 
-      <h3 style="text-align:center; color:green;"><u>LULUS</u></h3>
+    <h3 style="text-align: center; color: green;"><u>LULUS</u></h3>
 
-      <p style="text-align:left;">Adapun nilai transkrip akademik sebagai berikut:</p>
+    <p>Nilai transkrip akademik sebagai berikut:</p>
 
-      <table border="1" style="width:100%; border-collapse:collapse; font-size:12px;">
-        <thead>
-          <tr>
-            <th style="width:10%;">No</th>
-            <th style="width:75%; text-align:left;">Mata Pelajaran</th>
-            <th style="width:15%;">Nilai</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>1</td><td>Pendidikan Agama</td><td>88</td></tr>
-          <tr><td>2</td><td>PPKn</td><td>85</td></tr>
-          <tr><td>3</td><td>Bahasa Indonesia</td><td>90</td></tr>
-          <tr><td>4</td><td>Matematika</td><td>87</td></tr>
-          <tr><td>5</td><td>IPA</td><td>89</td></tr>
-          <tr><td>6</td><td>IPS</td><td>86</td></tr>
-          <tr><td>7</td><td>Bahasa Inggris</td><td>88</td></tr>
-          <tr><td>8</td><td>Seni Budaya</td><td>91</td></tr>
-          <tr><td>9</td><td>PJOK</td><td>92</td></tr>
-        </tbody>
-      </table>
+    <table>
+      <tr><th>No</th><th>Mata Pelajaran</th><th>Nilai</th></tr>
+      <tr><td>1</td><td>Pendidikan Agama</td><td>88</td></tr>
+      <tr><td>2</td><td>PPKn</td><td>85</td></tr>
+      <tr><td>3</td><td>Bahasa Indonesia</td><td>90</td></tr>
+      <tr><td>4</td><td>Matematika</td><td>87</td></tr>
+      <tr><td>5</td><td>IPA</td><td>89</td></tr>
+      <tr><td>6</td><td>IPS</td><td>86</td></tr>
+      <tr><td>7</td><td>Bahasa Inggris</td><td>88</td></tr>
+      <tr><td>8</td><td>Seni Budaya</td><td>91</td></tr>
+      <tr><td>9</td><td>PJOK</td><td>92</td></tr>
+    </table>
 
-      <p style="text-align:left; margin-top:10px;">Demikian surat keterangan ini dibuat untuk digunakan sebagaimana mestinya.</p>
+    <p style="margin-top: 10px;">Demikian surat keterangan ini dibuat untuk digunakan sebagaimana mestinya.</p>
 
-      <div style="text-align:right; margin-top:20px;">
-        <p>Sinjai, 1 Juli 2025</p>
-        <p>Kepala Sekolah,</p><br><br>
-        <p><strong>Drs. H. Muhammad Yusuf</strong><br>NIP. 19650101 199003 1 001</p>
-      </div>
+    <div class="ttd">
+      <p>Sinjai, 1 Juli 2025</p>
+      <p>Kepala Sekolah,</p><br><br>
+      <p><strong>Drs. H. Muhammad Yusuf</strong><br>NIP. 19650101 199003 1 001</p>
     </div>
   </div>
 
   <script>
     function downloadPDF() {
       const element = document.getElementById("skl");
-
-      // Delay untuk memastikan DOM siap
-      setTimeout(() => {
-        html2pdf()
-          .set({
-            margin: 0,
-            filename: 'Surat_Kelulusan_Andi_Budi_Santoso.pdf',
-            image: { type: 'jpeg', quality: 0.98 },
-            html2canvas: { scale: 2 },
-            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-          })
-          .from(element)
-          .save();
-      }, 100); // delay 100ms cukup
+      html2pdf()
+        .set({
+          margin: 0,
+          filename: 'Surat_Kelulusan_Andi_Budi_Santoso.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        })
+        .from(element)
+        .save();
     }
   </script>
 
