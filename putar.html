@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efek Suara Tajam & Nyaring Seperti Headphone Studio</title>
+</head>
+<body>
+
+<h2>Pilih Lagu MP3</h2>
+<input type="file" id="fileInput" accept="audio/mpeg"><br><br>
+
+<audio id="audioPlayer" controls></audio>
+
+<script>
+const audioPlayer = document.getElementById('audioPlayer');
+const fileInput = document.getElementById('fileInput');
+
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let sourceNode = null;
+let effectsConnected = false;
+
+// Efek Audio
+const treble = audioCtx.createBiquadFilter();
+treble.type = "highshelf";
+treble.frequency.value = 7000;
+treble.gain.value = 30;
+
+const mid = audioCtx.createBiquadFilter();
+mid.type = "peaking";
+mid.frequency.value = 2000;
+mid.Q.value = 1;
+mid.gain.value = 5;
+
+const bass = audioCtx.createBiquadFilter();
+bass.type = "lowshelf";
+bass.frequency.value = 400;
+bass.gain.value = 5;
+
+const compressor = audioCtx.createDynamicsCompressor();
+compressor.threshold.value = -25;
+compressor.knee.value = 20;
+compressor.ratio.value = 4;
+compressor.attack.value = 0.01;
+compressor.release.value = 0.2;
+
+// Sambungkan efek hanya sekali
+function connectEffects() {
+    if (effectsConnected) return;
+
+    sourceNode = audioCtx.createMediaElementSource(audioPlayer);
+
+    sourceNode.connect(bass);
+    bass.connect(mid);
+    mid.connect(treble);
+    treble.connect(compressor);
+    compressor.connect(audioCtx.destination);
+
+    effectsConnected = true;
+}
+
+// Pilih file MP3
+fileInput.addEventListener('change', function() {
+    const file = this.files[0];
+    if (!file) return;
+
+    const url = URL.createObjectURL(file);
+    audioPlayer.src = url;
+
+    connectEffects();
+
+    audioPlayer.play();
+    audioCtx.resume();
+});
+
+// URL default
+const defaultUrl = "https://smpn9sinjai.sch.id/remedi/tabola_bale.mp3";
+audioPlayer.src = defaultUrl;
+connectEffects();
+
+// Fungsi play manual
+function gop() {
+    audioPlayer.src = defaultUrl;
+    audioPlayer.play();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+}
+</script>
+
+</body>
+</html>
