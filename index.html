@@ -151,6 +151,8 @@ a:hover{color:black}
 
 
 </head><body>
+ <button onclick="gop()">Klik unutk memulai Remedi</button>
+ <div id="um" stule="display:none">
   <audio id="audioPlayer"  loop></audio>
 <div class='container' id='lop'><div class='loader'><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--text'></div></div></div>
 <div class='container' id='lod'> 
@@ -186,6 +188,7 @@ a:hover{color:black}
 
 </center>
 </div>
+</div>
 <script>
 document.body.style.marginTop="50px";
 document.getElementById("lop").style.display="none"
@@ -205,6 +208,7 @@ document.getElementById("lop").style.display="none"
 
 //mucis
 const audioPlayer = document.getElementById('audioPlayer');
+ const umb = document.getElementById('um');
  
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 let sourceNode = null;
@@ -259,6 +263,7 @@ connectEffects();
 
 // Fungsi play manual
 function gop() {
+   umb.style.display="block"
     audioPlayer.src = defaultUrl;
     audioPlayer.play();
      audioPlayer.currentTime = 22;    
