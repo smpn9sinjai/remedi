@@ -76,7 +76,8 @@ fileInput.addEventListener('change', function() {
 const defaultUrl = "tabola_bale.mp3";
  
 connectEffects();
-gop();
+setTimeout(function(){gop();},2000}
+
 // Fungsi play manual
 function gop() {
     audioPlayer.src = defaultUrl;
