@@ -7,14 +7,13 @@
 <body>
 
 <h2>Pilih Lagu MP3</h2>
-<input type="file" id="fileInput" accept="audio/mpeg"><br><br>
+ 
 <button onclick="gop()">Mulai</button>
-<audio id="audioPlayer" controls></audio>
+<audio id="audioPlayer" controls loop></audio>
 
 <script>
 const audioPlayer = document.getElementById('audioPlayer');
-const fileInput = document.getElementById('fileInput');
-
+ 
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 let sourceNode = null;
 let effectsConnected = false;
@@ -59,19 +58,7 @@ function connectEffects() {
 }
 
 // Pilih file MP3
-fileInput.addEventListener('change', function() {
-    const file = this.files[0];
-    if (!file) return;
-
-    const url = URL.createObjectURL(file);
-    audioPlayer.src = url;
-
-    connectEffects();
-
-    audioPlayer.play();
-    audioCtx.resume();
-});
-
+ 
 // URL default
 const defaultUrl = "tabola_bale.mp3";
  
