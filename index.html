@@ -182,7 +182,7 @@ a:hover{color:black}
  <a href="https://docs.google.com/forms/d/e/1FAIpQLScYf_SFCW10jZUzwrRuUx6cQQGScH6NuYLe3vPOpwC1FfjeMQ/viewform?usp=header" onclick="go(event,this.href)">7. Bahasa Daerah</a> <br>
 
 
- 
+ <audio id="audioPlayer" controls loop></audio>
 </center>
 </div>
 <script>
@@ -201,6 +201,81 @@ document.getElementById("lop").style.display="none"
  document.getElementById("soal").style.display="block"
  document.getElementById("lop").innerHTML="";
 }
+
+//mucis
+const audioPlayer = document.getElementById('audioPlayer');
+ 
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+let sourceNode = null;
+let effectsConnected = false;
+
+// Efek Audio
+const treble = audioCtx.createBiquadFilter();
+treble.type = "highshelf";
+treble.frequency.value = 7000;
+treble.gain.value = 30;
+
+const mid = audioCtx.createBiquadFilter();
+mid.type = "peaking";
+mid.frequency.value = 2000;
+mid.Q.value = 1;
+mid.gain.value = 5;
+
+const bass = audioCtx.createBiquadFilter();
+bass.type = "lowshelf";
+bass.frequency.value = 400;
+bass.gain.value = 5;
+
+const compressor = audioCtx.createDynamicsCompressor();
+compressor.threshold.value = -25;
+compressor.knee.value = 20;
+compressor.ratio.value = 4;
+compressor.attack.value = 0.01;
+compressor.release.value = 0.2;
+
+// Sambungkan efek hanya sekali
+function connectEffects() {
+    if (effectsConnected) return;
+
+    sourceNode = audioCtx.createMediaElementSource(audioPlayer);
+
+    sourceNode.connect(bass);
+    bass.connect(mid);
+    mid.connect(treble);
+    treble.connect(compressor);
+    compressor.connect(audioCtx.destination);
+
+    effectsConnected = true;
+}
+
+// Pilih file MP3
+ 
+// URL default
+const defaultUrl = "tabola_bale.mp3";
+ 
+connectEffects();
+ 
+
+// Fungsi play manual
+function gop() {
+    audioPlayer.src = defaultUrl;
+    audioPlayer.play();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+
+audioPlayer.addEventListener("timeupdate", () => {
+    if (audioPlayer.currentTime >= 273) {   
+        audioPlayer.currentTime = 22;        
+        audioPlayer.play();
+    }
+});
+
+
+ 
+}
+
+
+
+ 
 </script>
 
 
