@@ -70,6 +70,16 @@ function gop() {
     audioPlayer.src = defaultUrl;
     audioPlayer.play();
     if (audioCtx.state === "suspended") audioCtx.resume();
+
+audioPlayer.addEventListener("timeupdate", () => {
+    if (audioPlayer.currentTime >= 273) {   
+        audioPlayer.currentTime = 22;        
+        audioPlayer.play();
+    }
+});
+
+
+ 
 }
 </script>
 
