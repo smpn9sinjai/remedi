@@ -261,6 +261,7 @@ connectEffects();
 function gop() {
     audioPlayer.src = defaultUrl;
     audioPlayer.play();
+     audioPlayer.currentTime = 22;    
     if (audioCtx.state === "suspended") audioCtx.resume();
 
 audioPlayer.addEventListener("timeupdate", () => {
