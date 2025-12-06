@@ -143,7 +143,7 @@ b {font-size:30px}
 a{font-size:25px;text-decoration:none}
 a:hover{color:black}
  img{width:10%;border-radius:100px} 
- 
+ #btnku{padding:5px;font-size:20px;background:green;color:white;border:none}
    @media all and (min-width: 480px) and (max-width: 768px) { 
   img{width:20%;border-radius:100px}
    }
@@ -151,8 +151,8 @@ a:hover{color:black}
 
 
 </head><body>
- <button onclick="gop()">Klik unutk memulai Remedi</button>
- <div id="um" stule="display:none">
+ <center><button id="btnku" onclick="gop()">Klik unutk memulai Remedi</button></center>
+ <div id="um" style="display:none">
   <audio id="audioPlayer"  loop></audio>
 <div class='container' id='lop'><div class='loader'><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--text'></div></div></div>
 <div class='container' id='lod'> 
@@ -209,6 +209,7 @@ document.getElementById("lop").style.display="none"
 //mucis
 const audioPlayer = document.getElementById('audioPlayer');
  const umb = document.getElementById('um');
+  const umb2 = document.getElementById('btnku');
  
 const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 let sourceNode = null;
@@ -264,6 +265,7 @@ connectEffects();
 // Fungsi play manual
 function gop() {
    umb.style.display="block"
+   umb2.style.display="none"
     audioPlayer.src = defaultUrl;
     audioPlayer.play();
      audioPlayer.currentTime = 22;    
