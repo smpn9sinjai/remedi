@@ -1,4 +1,5 @@
 
+
 <html>
 <head>
 <meta charset='UTF-8'/>
@@ -143,7 +144,10 @@ b {font-size:30px}
 a{font-size:25px;text-decoration:none}
 a:hover{color:black}
  img{width:10%;border-radius:100px} 
- #btnku{padding:5px;font-size:20px;background:green;color:white;border:none}
+ #btnku{padding:7px;font-size:20px;background:green;color:white;border:none;border-radius:5px;border-left:5px solid orange;cursor:pointer}
+ #btnku:hover{background:orange}
+  #btnku2,#btnku3{padding:7px;font-size:17px;background:green;color:white;border:none;border-radius:5px;border-left:5px solid orange;cursor:pointer}
+ #btnku2:hover,#btnku3:hover{background:orange}
    @media all and (min-width: 480px) and (max-width: 768px) { 
   img{width:20%;border-radius:100px}
    }
@@ -151,44 +155,39 @@ a:hover{color:black}
 
 
 </head><body>
- <center><button id="btnku" onclick="gop()">Klik unutk memulai Remedi</button></center>
+<button id="btnku2" style="position:fixed;top:2px;left:2px;padding:5px;display:none" onclick="back()">← Kembali</button>
+<button id="btnku3" style="position:fixed;bottom:2px;right:2px;padding:5px;display:none" onclick="stop()">Stop</button>
+ <center><button id="btnku" onclick="gop()">Klik untuk memulai Remedi</button></center>
  <div id="um" style="display:none">
   <audio id="audioPlayer"  loop></audio>
 <div class='container' id='lop'><div class='loader'><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--dot'></div><div class='loader--text'></div></div></div>
 <div class='container' id='lod'> 
-<div style="margin:0;" id='tes'>
+<div style="margin:0;" id='tes'></div>
+<div style="margin:0;" id='tes1'>
 <center>
  <img src="/doku/smp.jpg"></img>
 <div style="font-size:30px;background:green;color:white;width:330px;border-radius:10px;margin-top:10px;padding:10px;border-top:5px solid orange">UPTD SMPN 9 SINJAI</div><br>
-<b>Mapel Remedi</b><br><i>SAS GENAP TP.2024/2025</i><p>
+<b>Mapel Remedi</b><br><i>SAS GANJIL TP.2025/2026</i><p>
 <div style="background:Orange;color:white;width:330px;border-radius:10px;margin-top:10px"><b style="font-color:blue" >Kelas 7</b><p></div>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScOJEdmdeDVZmja1zM4izBpAAHtT42BcDC977dAF-1j3X_uNA/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScl7eQgYlBx_iFv2A9invEHC14GaHRqy9vQr4Y0hQy-lUiBpw/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Indonesia</a> <br>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLScdiDUATKjZvcm0ncTiX9h0WQt3Cz7V0eISmOfSs7dYUqJVyQ/viewform?usp=header" onclick="go(event,this.href)">3. IPA</a> <br>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeMwTYZ9tw_xd1ylMJ85zTzEcN5YRACKQJKbYo5dIs8hB2cww/viewform?usp=header" onclick="go(event,this.href)">4. Pendidikan Agama Islam</a> <br>
-   <a href="https://docs.google.com/forms/d/e/1FAIpQLScvBz0KJeNTd_FZ8yKZvegmRkZ4LuPpVUhb4VW-qfAwpqqqlw/viewform?usp=header" onclick="go(event,this.href)">5. IPS </a> <br>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLSe2kpu8UYFmUFV1CInIi9POwbvk2YUjBClWbLQ9HMm9ncDgAg/viewform?usp=header" onclick="go(event,this.href)">6. Informatika </a> <br>
-<!-- <a href="https://docs.google.com/fforms/d/e/1FAIpQLSfM4CwH_RnB1g4mQV9o3dX22k8VUg5dBcWLAFm9jx-PhGzTtA/viewform?usp=header" onclick="go(event,this.href)">7. Bahasa Daerah </a> <br>-->
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSfM4CwH_RnB1g4mQV9o3dX22k8VUg5dBcWLAFm9jx-PhGzTtA/viewform?usp=header" onclick="go(event,this.href)">7. Bahasa Daerah </a> <br>
-
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdbuy3J8tm4bXtsBw3v4JCm9sVg3wG6VP01DofD3Ay5-OJ1Yw/viewform?usp=header" onclick="go(event,this.href)">8. Matematika </a> <br> 
- 
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdry6iAWF9zxGhyW-aZENQoMQ34adhYV4XESLtB5C07b7tXqw/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScdnKNwKn9W4k8LEKauAII7U4w1_EvquroO6T7fBsnplxeoew/viewform?usp=header" onclick="go(event,this.href)">2. Matematika</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfLjwPYHjIOjmM4kAEyekGWcTsRzNgKpw1H9RQkqQHjXAgbNQ/viewform?usp=header" onclick="go(event,this.href)">3. Bahasa Indonesia</a><br>  
 
 <p>
 <div style="background:red;color:white;width:330px;border-radius:10px;margin-top:10px"><b style="font-color:blue" >Kelas 8</b><p></div>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSdeC9yIv5oXDBWufiCMQE_c38BAqLSF9-dpnmhRarsuF0ZRIA/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLScrd2crFEfiwngbJ7og5TVmpeTHmILX13nifZV_iAcONwkZzQ/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Indonesia</a> <br>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSd81V4qLXqsrWyqmZelGHVzXDZo7v0tBFzggu07nwudMn4PFw/viewform?usp=header" onclick="go(event,this.href)">3. IPA</a>  <br>
-     <a href="https://docs.google.com/forms/d/e/1FAIpQLSesAwWYUPGRFyY4wiCldwzRVwq3RJXk6GrlRbulOLNcjI4xVw/viewform?usp=header" onclick="go(event,this.href)">4. Pendidikan Agama Islam</a> <br>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLScsj8hKSqQPh5mzRaLsAghIby4jcuAAlYjJDDHeiG5Vq7H0Fw/viewform?usp=header" onclick="go(event,this.href)">5. IPS</a> <br>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSd57Gc8Cumstew7YtsUPRizJjLCDLN7pfcn6iDOwVW6zAd5kA/viewform?usp=header" onclick="go(event,this.href)">6. Informatika</a> <br>
- <a href="https://docs.google.com/forms/d/e/1FAIpQLScYf_SFCW10jZUzwrRuUx6cQQGScH6NuYLe3vPOpwC1FfjeMQ/viewform?usp=header" onclick="go(event,this.href)">7. Bahasa Daerah</a> <br>
-
-
-
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSc8yvHpmYHspHnV_4DOzwz3UR3xhw0n6E8KT_IyjYkjzyH3zw/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris Kelas 8.A</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScz5gnDR5ZW52Oso9fzqZJKH0h4_f-9nMMCD6R7hTrf2uhDog/viewform?usp=header" onclick="go(event,this.href)">2. Bahasa Inggris Kelas 8.B</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSeSFnG29Ka1oa-8jc-naSVqtG9j5IqT689Zk7KPb5bzWZ0xmg/viewform?usp=header" onclick="go(event,this.href)">3. Matematika</a><br>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9WXoMC0L7-OJsl1RD8YAw3q5KO5Jgyc9Z8BEwS_cpl8sa8g/viewform?usp=header" onclick="go(event,this.href)">4. Bahasa Indonesia</a><br>   
+<p>
+<div style="background:red;color:white;width:330px;border-radius:10px;margin-top:10px"><b style="font-color:blue" >Kelas 9</b><p></div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfWAUXiD0SB2LgKTtkCFDLxGkA1LDqk5s0ZdCkOLBXrcDSscQ/viewform?usp=header" onclick="go(event,this.href)">1. Bahasa Inggris</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdY2xK32eY7TxcKVZUwzOc59h2hNuPCxw5di9XLQVom1sEYww/viewform?usp=header" onclick="go(event,this.href)">2. Matematika</a><br>
+ <a href="https://docs.google.com/forms/d/e/1FAIpQLSceK6geBRJMKGTFKCyjWSaiank8SUjY-KSLUAOgmwAktzGO8Q/viewform?usp=header" onclick="go(event,this.href)">3. Bahasa Indonesia</a><br>   
 </center>
 </div>
 </div>
+ 
 <script>
 document.body.style.marginTop="50px";
 document.getElementById("lop").style.display="none"
@@ -197,15 +196,25 @@ function go(ev,dd){
 ev.preventDefault();
 var mdata=	`<iframe allowfullscreen='true' id="soal" frameborder='0' onload='gos()' height='980px' id='soal' marginheight='0' marginwidth='0' mozallowfullscreen='true' msallowfullscreen='true'  src='`+dd+`' style='border: none; width:100%;max-width:100%; max-height:100vh' webkitallowfullscreen='true' width='640px'>Memuat&#8230;</iframe>`
 document.body.style.marginTop="0px";
+document.getElementById("tes1").style.display="none"
+document.getElementById("tes").style.display="block"
 document.getElementById("tes").innerHTML=mdata
 document.getElementById("lop").style.display="block"
+document.getElementById("btnku2").style.display="block"
+window.scroll(0, 0);
+
 }
 function gos(){
+window.scroll(0, 0);
 document.getElementById("lop").style.display="none"
  document.getElementById("soal").style.display="block"
- document.getElementById("lop").innerHTML="";
+  
 }
 
+function back(){document.getElementById("tes1").style.display="block"
+document.getElementById("tes").style.display="none"
+document.getElementById("btnku2").style.display="none"
+}
 //mucis
 const audioPlayer = document.getElementById('audioPlayer');
  const umb = document.getElementById('um');
@@ -264,6 +273,7 @@ connectEffects();
 
 // Fungsi play manual
 function gop() {
+    document.getElementById("btnku3").style.display="block"
    umb.style.display="block"
    umb2.style.display="none"
     audioPlayer.src = defaultUrl;
@@ -282,7 +292,13 @@ audioPlayer.addEventListener("timeupdate", () => {
  
 }
 
+function stop(){
+let mm=document.getElementById("btnku3")
 
+ if(mm.innerText=="Stop"){mm.innerText="Play";audioPlayer.pause()}
+ else {mm.innerText="Stop";audioPlayer.play();}
+
+}
 
  
 </script>
